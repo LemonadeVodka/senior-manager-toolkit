@@ -8,15 +8,15 @@ A personal playbook for senior managers working under pressure: a difficult boss
 
 | # | Pillar | What's in it |
 |---|---|---|
-| 1 | **Lead Up** (`up/`) | Difficult vs toxic vs abusive (with a Boss Pattern Check), the Influence Playbook and Boss Map, scripts for hard moments, owning your 1:1s, the Escalation Ladder, and a private Interaction Debrief |
-| 2 | **Lead Your Capacity** (`capacity/`) | Overwork Triage and the Trade-Off Menu (with a Capacity Triage tool), **ARC Pushback**, stopping multitasking (Weekly Big 3, focus blocks), and protecting your capacity |
+| 1 | **Lead Up** (`up/`) | Difficult vs toxic vs abusive (with a Boss Pattern Check), a field guide to the brilliant but abusive technical boss, the Influence Playbook and Boss Map, scripts for hard moments, owning your 1:1s, the Escalation Ladder, and a private Interaction Debrief |
+| 2 | **Lead Your Capacity** (`capacity/`) | Overwork Triage and the Trade-Off Menu (with a Capacity Triage tool), **ARC Pushback** and force-ranking when everything is a priority, stopping multitasking (Weekly Big 3, focus blocks), and protecting your capacity |
 | 3 | **Lead the Room** (`meetings/`) | Purpose First, **OAR → DOA**, running meetings well, a meeting audit, and meetings with a difficult boss |
 | 4 | **Lead With Questions** (`questions/`) | **The Five Lenses** (Problem, Options, Risk, Evidence, Cost), a Question Builder, spotting weak answers, how to ask, and 30 core terms |
 | 5 | **Lead Your Team** (`team/`) | Umbrella, not sponge; a team safety pulse; repair after damage; talking about your boss; and when a report is targeted |
 | 6 | **Lead Yourself** (`self/`) | Warning signs, the Reset Protocol, recovery and support, a Weekly Check-In, documentation done right, career insurance, Stay / Change / Leave, and exiting well |
 | 7 | **Lead With Dark Magic** (`power/`) | **SPELL** (Say less, Position, Earn leverage, Line up allies, Land on timing), ideas from *The 48 Laws of Power* applied ethically, Counter-Spells, the **Daylight Test**, and a Power Move Planner |
 
-The Toolkit section adds a filterable template library (15 templates), a framework index, and references.
+The Toolkit section adds a filterable template library (19 templates), a framework index, and references.
 
 ## Privacy
 

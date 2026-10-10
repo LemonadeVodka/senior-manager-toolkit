@@ -14,6 +14,7 @@
     { group: "1 · Lead Up", track: "up", items: [
       { id: "up", href: "up/index.html", title: "Lead Up Playbook" },
       { id: "up-diagnose", href: "up/diagnose.html", title: "Difficult, Toxic, or Abusive?" },
+      { id: "up-bully", href: "up/brilliant-bully.html", title: "Field Guide: The Brilliant Bully" },
       { id: "up-influence", href: "up/influence.html", title: "The Influence Playbook" },
       { id: "up-scripts", href: "up/scripts.html", title: "Scripts for Hard Moments" },
       { id: "up-one-on-ones", href: "up/one-on-ones.html", title: "Owning Your 1:1s" },

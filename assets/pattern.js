@@ -17,8 +17,13 @@
     ["t5", "toxic", "Unpredictable moods that people plan their day around"],
     ["t6", "toxic", "Denies saying things they said, or rewrites decisions afterwards"],
     ["t7", "toxic", "Their behavior is visibly demotivating the team"],
+    ["t8", "toxic", "Criticizes people in front of other teams or external partners"],
+    ["t9", "toxic", "Calls everything a priority, and won't rank them"],
+    ["t10", "toxic", "Demands perfection but doesn't invest in tools, training, or fundamentals"],
+    ["t11", "toxic", "Dismisses work-life balance and expects constant availability"],
     ["a1", "abusive", "Threatens your job or others' jobs to get compliance"],
-    ["a2", "abusive", "Comments or treatment related to gender, race, age, religion, disability, or other protected traits"],
+    ["a2", "abusive", "Racist, sexist, or other discriminatory remarks, or treatment based on protected traits"],
+    ["a6", "abusive", "Calls people names or insults them in meetings"],
     ["a3", "abusive", "Retaliates after someone raises a concern"],
     ["a4", "abusive", "Asks you to break policy, falsify information, or act unethically"],
     ["a5", "abusive", "Shouting, intimidation, or unwanted physical contact"]
@@ -44,6 +49,7 @@
       links: [["The Influence Playbook", "influence.html"], ["The Five Lenses", "../questions/five-lenses.html"]] };
     return null;
   }
+  function bully() { return state.a2 || state.a6 || (state.t1 && (state.t8 || state.t9 || state.t10)); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function render() {
     var groups = { difficult: "Difficult", toxic: "Toxic", abusive: "Abusive" };
@@ -57,7 +63,7 @@
     html += "</div>";
     var r = result();
     if (r) html += '<div class="result-banner ' + r.cls + '" id="pattern-result"><strong>' + esc(r.title) + "</strong><p>" + esc(r.text) + "</p><p>" +
-      r.links.map(function (l) { return '<a href="' + l[1] + '">' + esc(l[0]) + "</a>"; }).join(" · ") + "</p></div>";
+      r.links.concat(bully() ? [["Field Guide: The Brilliant Bully", "brilliant-bully.html"]] : []).map(function (l) { return '<a href="' + l[1] + '">' + esc(l[0]) + "</a>"; }).join(" · ") + "</p></div>";
     else html += '<p class="small" id="pattern-result">Tick what you\'ve seen repeatedly to get a suggested path.</p>';
     html += '<div class="tool-row"><button type="button" class="btn" data-act="clear">Clear</button></div>';
     app.innerHTML = html;
