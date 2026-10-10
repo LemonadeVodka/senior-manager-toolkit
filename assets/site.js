@@ -185,9 +185,7 @@
   /* ---------- Footer ---------- */
   var footer = document.getElementById("footer");
   if (footer) {
-    footer.innerHTML = '&copy; 2026 Senior Manager Toolkit. All rights reserved. · Updated ' + UPDATED +
-      '<small>Not legal, medical, or HR advice. Private notes stay in your browser. · ' +
-      '<a href="' + root + 'references.html">References</a> · <a href="https://github.com/LemonadeVodka/senior-manager-toolkit">Source on GitHub</a></small>';
+    footer.innerHTML = '&copy; 2026 Senior Manager Toolkit. All rights reserved. · Updated ' + UPDATED;
   }
 
   /* ---------- Heading anchors + TOC ---------- */
