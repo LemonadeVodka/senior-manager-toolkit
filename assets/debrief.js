@@ -5,7 +5,7 @@
   var app = document.getElementById("debrief-app");
   if (!app) return;
   var KEY = "smt-debrief";
-  var TAGS = ["Public criticism", "Credit-taking", "Moving goalposts", "Denied agreement", "Volatility", "Exclusion", "Unreasonable demand", "Positive moment"];
+  var TAGS = ["Public criticism", "Credit-taking", "Moving goalposts", "Denied agreement", "Volatility", "Exclusion", "Unreasonable demand", "Name-calling", "Discriminatory remark", "Threat or intimidation", "Possible retaliation", "Positive moment"];
   var log = [];
   try { log = JSON.parse(localStorage.getItem(KEY) || "[]") || []; } catch (e) { log = []; }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(log)); } catch (e) { /* ignore */ } }

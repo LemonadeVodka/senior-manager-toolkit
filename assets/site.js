@@ -3,11 +3,12 @@
 (function () {
   "use strict";
 
-  /* Each group is a track. Prev/next paging stays inside the track. */
+  /* Each group is a track (and a pillar colour). Prev/next paging stays inside the track.
+     core: true marks the Core 5 frameworks to learn first. */
   var NAV = [
     { group: "Start", track: "start", items: [
       { id: "index", href: "index.html", title: "Dashboard" },
-      { id: "how-to-use", href: "how-to-use.html", title: "How to Use This Toolkit" },
+      { id: "how-to-use", href: "how-to-use.html", title: "Start Here" },
       { id: "ground-rules", href: "ground-rules.html", title: "Ground Rules" },
       { id: "frameworks", href: "frameworks.html", title: "Framework Index" }
     ]},
@@ -15,16 +16,18 @@
       { id: "up", href: "up/index.html", title: "Lead Up Playbook" },
       { id: "up-diagnose", href: "up/diagnose.html", title: "Difficult, Toxic, or Abusive?" },
       { id: "up-bully", href: "up/brilliant-bully.html", title: "Field Guide: The Brilliant Bully" },
+      { id: "up-hr", href: "up/hr-reportable.html", title: "When It's HR-Reportable" },
       { id: "up-influence", href: "up/influence.html", title: "The Influence Playbook" },
+      { id: "up-visibility", href: "up/leadership-visibility.html", title: "Make Leadership Count" },
       { id: "up-scripts", href: "up/scripts.html", title: "Scripts for Hard Moments" },
       { id: "up-one-on-ones", href: "up/one-on-ones.html", title: "Owning Your 1:1s" },
-      { id: "up-escalation", href: "up/escalation.html", title: "The Escalation Ladder" },
+      { id: "up-escalation", href: "up/escalation.html", title: "The Escalation Ladder", core: true },
       { id: "up-debrief", href: "up/debrief.html", title: "Interaction Debrief" }
     ]},
     { group: "2 · Lead Your Capacity", track: "capacity", items: [
       { id: "cap", href: "capacity/index.html", title: "Lead Your Capacity Playbook" },
       { id: "cap-triage", href: "capacity/overwork-triage.html", title: "Overwork Triage" },
-      { id: "cap-pushback", href: "capacity/arc-pushback.html", title: "ARC Pushback" },
+      { id: "cap-pushback", href: "capacity/arc-pushback.html", title: "ARC Pushback", core: true },
       { id: "cap-focus", href: "capacity/stop-multitasking.html", title: "Stop Multitasking" },
       { id: "cap-protect", href: "capacity/protect-capacity.html", title: "Protect Your Capacity" }
     ]},
@@ -38,7 +41,7 @@
     ]},
     { group: "4 · Lead With Questions", track: "questions", items: [
       { id: "q", href: "questions/index.html", title: "Lead With Questions Playbook" },
-      { id: "q-lenses", href: "questions/five-lenses.html", title: "The Five Lenses" },
+      { id: "q-prove", href: "questions/prove.html", title: "PROVE", core: true },
       { id: "q-builder", href: "questions/question-builder.html", title: "Question Builder" },
       { id: "q-weak", href: "questions/weak-answers.html", title: "Spotting a Weak Answer" },
       { id: "q-how", href: "questions/how-to-ask.html", title: "How to Ask" },
@@ -49,16 +52,18 @@
       { id: "team-umbrella", href: "team/umbrella.html", title: "Umbrella, Not Sponge" },
       { id: "team-pulse", href: "team/safety-pulse.html", title: "Team Safety Pulse" },
       { id: "team-repair", href: "team/repair.html", title: "Repair After Damage" },
+      { id: "team-rebuild", href: "team/rebuild.html", title: "Rebuilding a Damaged Team" },
       { id: "team-talking", href: "team/talking-about-your-boss.html", title: "Talking About Your Boss" },
       { id: "team-targeted", href: "team/when-a-report-is-targeted.html", title: "When a Report Is Targeted" }
     ]},
     { group: "6 · Lead Yourself", track: "self", items: [
       { id: "self", href: "self/index.html", title: "Lead Yourself Playbook" },
       { id: "self-signs", href: "self/warning-signs.html", title: "Warning Signs" },
-      { id: "self-reset", href: "self/reset-protocol.html", title: "The Reset Protocol" },
+      { id: "self-reset", href: "self/reset-protocol.html", title: "The Reset Protocol", core: true },
       { id: "self-recovery", href: "self/recovery-and-support.html", title: "Recovery & Support" },
+      { id: "self-confidence", href: "self/rebuilding-confidence.html", title: "Rebuilding Confidence" },
       { id: "self-checkin", href: "self/check-in.html", title: "Weekly Check-In" },
-      { id: "self-docs", href: "self/documentation.html", title: "Documentation Done Right" },
+      { id: "self-docs", href: "self/documentation.html", title: "Documentation Done Right", core: true },
       { id: "self-career", href: "self/career-insurance.html", title: "Career Insurance" },
       { id: "self-decide", href: "self/stay-change-leave.html", title: "Stay, Change, or Leave" },
       { id: "self-exit", href: "self/exiting-well.html", title: "Exiting Well" }
@@ -73,12 +78,11 @@
     ]},
     { group: "Toolkit", track: "toolkit", items: [
       { id: "templates", href: "templates.html", title: "Template Library" },
+      { id: "pocket-card", href: "pocket-card.html", title: "Core 5 Pocket Card" },
+      { id: "roadmap", href: "roadmap.html", title: "What's Next" },
       { id: "references", href: "references.html", title: "References" }
     ]}
   ];
-  var TRACK_HOME = {};
-  var TRACK_LABEL = { noc: "Contract NOC: Building Capability", sre: "SRE Team: Developing Engineers", lead: "Incident Management Playbook" };
-  var PANEL_HOME = { noc: "leaders/enabling-the-noc.html", sre: "leaders/enabling-sre.html", lead: "leaders/index.html" };
 
   var body = document.body;
   var root = body.getAttribute("data-root") || "./";
@@ -95,9 +99,8 @@
 
   var current = null, currentTrack = "shared";
   NAV.forEach(function (g) { g.items.forEach(function (i) { if (i.id === page) { current = i; currentTrack = g.track; } }); });
-  if (TRACK_HOME[currentTrack]) store("smt-role", currentTrack);
-  var myRole = store("smt-role");
   body.setAttribute("data-track", currentTrack);
+  body.setAttribute("data-pillar", currentTrack);
 
   var CLOUD = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/>' +
     '<path d="M16 6l8 3v6.5c0 5-3.4 8.6-8 10.5-4.6-1.9-8-5.5-8-10.5V9z" fill="var(--accent-fg)"/>' +
@@ -105,12 +108,6 @@
   var SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
   var MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
   var MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
-  var ICONS = {
-    lead: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg>',
-    noc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 11l2.5-3 2.5 4 2-2.5L17 11"/></svg>',
-    sre: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M8 11h6M11 8v6"/></svg>'
-  };
-
   /* ---------- Header ---------- */
   var header = document.getElementById("site-header");
   if (header) {
@@ -118,8 +115,8 @@
       '<button class="icon-btn menu-btn" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">' + MENU + '</button>' +
       '<a class="brand" href="' + root + 'index.html">' + CLOUD + '<span>Senior Manager<small>Toolkit</small></span></a>' +
       '<div class="header-spacer"></div>' +
-      '<a class="incident-cta calm" href="' + root + 'capacity/overwork-triage.html"><span>Drowning<span class="cta-long">? Triage</span></span></a>' +
-      '<a class="incident-cta" href="' + root + 'self/reset-protocol.html"><i class="pulse"></i><span>Bad Interaction<span class="cta-long">? Reset</span></span></a>' +
+      '<a class="header-cta" href="' + root + 'capacity/overwork-triage.html"><span>Drowning<span class="cta-long">? Triage</span></span></a>' +
+      '<a class="header-cta reset" href="' + root + 'self/reset-protocol.html"><span>Need a Reset<span class="cta-long">?</span></span></a>' +
       '<button class="icon-btn theme-btn" type="button" aria-label="Toggle dark mode"></button>';
 
     var themeBtn = header.querySelector(".theme-btn");
@@ -150,13 +147,12 @@
   var sidebar = document.getElementById("sidebar");
   if (sidebar) {
     sidebar.innerHTML = NAV.map(function (g) {
-      var role = !!TRACK_HOME[g.track];
-      var cls = "nav-group" + (role ? " t-" + g.track : "") + (role && g.track === myRole ? " mine" : "");
+      var cls = "nav-group";
       var open = g.track === "start" || g.track === currentTrack;
       if (open) cls += " open";
-      return '<div class="' + cls + '"><h4><button type="button" class="nav-toggle" aria-expanded="' + open + '">' + esc(g.group) + '</button></h4><div class="nav-items">' + g.items.map(function (i) {
+      return '<div class="' + cls + '" data-pillar="' + g.track + '"><h4><button type="button" class="nav-toggle" aria-expanded="' + open + '">' + esc(g.group) + '</button></h4><div class="nav-items">' + g.items.map(function (i) {
         var cur = i.id === page ? ' aria-current="page"' : "";
-        return '<a href="' + root + i.href + '"' + cur + '><span>' + esc(i.title) + '</span></a>';
+        return '<a href="' + root + i.href + '"' + cur + '><span>' + esc(i.title) + '</span>' + (i.core ? '<span class="nav-core" title="Core 5 framework">CORE</span>' : "") + '</a>';
       }).join("") + '</div></div>';
     }).join("");
     sidebar.addEventListener("click", function (e) {
@@ -179,86 +175,11 @@
     pager.setAttribute("aria-label", "Previous and next pages");
   }
 
-  /* ---------- Role chooser cards remember the role ---------- */
-  Array.prototype.forEach.call(document.querySelectorAll("[data-choose-role]"), function (a) {
-    a.addEventListener("click", function () { store("smt-role", a.getAttribute("data-choose-role")); });
-  });
-
   /* ---------- Footer ---------- */
   var footer = document.getElementById("footer");
   if (footer) {
     footer.innerHTML = 'Personal toolkit with fictional, generic examples. Not legal, medical, or HR advice. Private notes stay in your browser. · ' +
       '<a href="' + root + 'references.html">References</a> · <a href="https://github.com/LemonadeVodka/senior-manager-toolkit">Source on GitHub</a>';
-  }
-
-  /* ---------- Role panels: icon + link to that role's track ---------- */
-  Array.prototype.forEach.call(document.querySelectorAll(".leader"), function (panel) {
-    var role = panel.classList.contains("noc") ? "noc" : panel.classList.contains("sre") ? "sre" : "lead";
-    var h = panel.querySelector(".leader-head");
-    if (!h) return;
-    h.insertAdjacentHTML("afterbegin", ICONS[role]);
-    if (!panel.hasAttribute("data-noguide")) {
-      var target = panel.getAttribute("data-guide") || PANEL_HOME[role];
-      h.insertAdjacentHTML("beforeend", '<a class="guide-link" href="' + root + target + '">' + TRACK_LABEL[role] + ' →</a>');
-    }
-  });
-
-  /* ---------- KQL placeholder highlighting ----------
-     Lines like:  let role = "svc";  // [NIMBUS] explanation
-     get the value highlighted and tagged. Copy still copies plain text. */
-  var PARAM_RE = /^(\s*let\s+)([A-Za-z_]\w*)(\s*=\s*)(.+?)(;\s*)(\/\/\s*\[(NIMBUS|AZURE|TUNE|CHANGE)\].*)$/;
-  Array.prototype.forEach.call(document.querySelectorAll(".code-card pre code"), function (code) {
-    var lines = code.textContent.split("\n"), adapt = 0, touched = false;
-    var out = lines.map(function (line) {
-      var m = line.match(PARAM_RE);
-      if (!m) return esc(line);
-      touched = true;
-      var tag = m[7], val = esc(m[4]);
-      if (tag === "NIMBUS" || tag === "CHANGE") { adapt++; val = '<mark class="p-nimbus" data-param="' + m[2] + '" data-orig="' + val + '">' + val + '</mark>'; }
-      else if (tag === "TUNE") { adapt++; val = '<span class="p-tune">' + val + '</span>'; }
-      return esc(m[1]) + esc(m[2]) + esc(m[3]) + val + esc(m[5]) +
-        '<span class="p-tag' + (tag === "NIMBUS" || tag === "CHANGE" ? " nimbus" : "") + '">' + esc(m[6]) + '</span>';
-    });
-    if (!touched) return;
-    code.innerHTML = out.join("\n");
-    var head = code.closest(".code-card").querySelector(".code-head");
-    if (head && adapt) {
-      var chip = document.createElement("span");
-      chip.className = "adapt-chip";
-      chip.title = "Values to change for your environment";
-      chip.textContent = "Adapts: " + adapt + " value" + (adapt > 1 ? "s" : "");
-      head.insertBefore(chip, head.querySelector(".title").nextSibling);
-    }
-  });
-
-  /* ---------- "Make it yours": swap Nimbus values for the reader's own (saved per browser) ---------- */
-  var params = {};
-  try { params = JSON.parse(store("smt-kql-params") || "{}") || {}; } catch (e) { params = {}; }
-  function applyParams() {
-    Array.prototype.forEach.call(document.querySelectorAll("mark.p-nimbus[data-param]"), function (mk) {
-      var v = params[mk.getAttribute("data-param")];
-      mk.textContent = v ? JSON.stringify(v) : mk.getAttribute("data-orig");
-    });
-  }
-  applyParams();
-  var form = document.getElementById("myq");
-  if (form) {
-    Array.prototype.forEach.call(form.querySelectorAll("input[data-param]"), function (inp) {
-      var k = inp.getAttribute("data-param");
-      if (params[k]) inp.value = params[k];
-      inp.addEventListener("input", function () {
-        var v = inp.value.trim();
-        if (v) params[k] = v; else delete params[k];
-        store("smt-kql-params", JSON.stringify(params));
-        applyParams();
-      });
-    });
-    var resetBtn = document.getElementById("myq-reset");
-    if (resetBtn) resetBtn.addEventListener("click", function () {
-      params = {}; store("smt-kql-params", null);
-      Array.prototype.forEach.call(form.querySelectorAll("input"), function (i) { i.value = ""; });
-      applyParams();
-    });
   }
 
   /* ---------- Heading anchors + TOC ---------- */
@@ -269,7 +190,7 @@
     var heads = article.querySelectorAll("h2, h3");
     var tocLinks = [];
     Array.prototype.forEach.call(heads, function (h) {
-      if (h.closest(".card, .triage, .leader, .role-card")) return;
+      if (h.closest(".card, .fw-card")) return;
       if (!h.id) {
         var base = h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "section";
         var id = base, n = 2;
@@ -328,7 +249,17 @@
     t.textContent = msg; t.classList.add("show");
     clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 1500);
   }
-  window.nimbusToast = toast;
+  window.smtToast = toast;
+  window.nimbusToast = toast; /* older tool scripts call this name */
+
+  /* ---------- Backup reminder under every private tool ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('main [id$="-app"]'), function (app) {
+    if (app.hasAttribute("data-no-nudge")) return;
+    var p = document.createElement("p");
+    p.className = "backup-nudge";
+    p.innerHTML = 'On-device only: saved in this browser, never sent anywhere. <a href="' + root + 'how-to-use.html#your-data">Back up your notes</a>';
+    app.parentNode.insertBefore(p, app.nextSibling);
+  });
 
   /* ---------- Copy buttons ---------- */
   Array.prototype.forEach.call(document.querySelectorAll(".code-card"), function (card) {

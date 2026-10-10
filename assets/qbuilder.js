@@ -1,4 +1,4 @@
-/* Question Builder: pick a situation and depth, get Five Lenses questions with what to listen for. */
+/* Question Builder: pick a situation and depth, get PROVE questions (Problem, Risk, Options, Value, Evidence) with what to listen for. */
 (function () {
   "use strict";
   var app = document.getElementById("qb-app");
@@ -9,7 +9,7 @@
       ["Options", "What alternatives did you consider, and why did you rule them out?", "At least two real alternatives with reasons"],
       ["Risk", "What's the most likely way this fails in production? How far would it spread?", "Named failure modes and a limited blast radius"],
       ["Risk", "How do we roll back if it goes wrong?", "A tested, fast rollback"],
-      ["Cost", "Who runs this after launch, and what does on-call look like?", "An owning team, with operations planned"],
+      ["Value", "Who runs this after launch, and what does on-call look like?", "An owning team, with operations planned"],
       ["Evidence", "What would make you change this design?", "A clear condition, which shows open-mindedness"]
     ]},
     estimate: { name: "Estimate / Deadline", q: [
@@ -25,25 +25,25 @@
       ["Options", "What's the fastest safe way to reduce impact, even before we know the cause?", "A reversible mitigation"],
       ["Risk", "What could make this worse, and how would we know?", "Named risks and signals to watch"],
       ["Problem", "What changed just before it started?", "Deploys, config, traffic, or third parties checked"],
-      ["Cost", "What do you need from me?", "A specific unblock, or \"nothing\""]
+      ["Value", "What do you need from me?", "A specific unblock, or \"nothing\""]
     ]},
     vendor: { name: "Vendor Pitch", q: [
       ["Problem", "Which of our problems does this solve, specifically?", "A link to our needs, not generic features"],
       ["Evidence", "Who like us uses it, and can we talk to them?", "Comparable references"],
-      ["Cost", "What's the full cost: licenses, integration, training, ongoing administration, and exit?", "Total cost of ownership, including switching away"],
+      ["Value", "What's the full cost: licenses, integration, training, ongoing administration, and exit?", "Total cost of ownership, including switching away"],
       ["Risk", "What happens to our data and operations if you have an outage or go out of business?", "SLAs, data export, a continuity plan"],
       ["Options", "Why not build it, or use what we already have?", "An honest comparison"]
     ]},
     debt: { name: "Tech-Debt Ask", q: [
       ["Problem", "What is this debt costing us today: incidents, slowdowns, toil?", "Measured pain"],
-      ["Cost", "What happens if we don't fix it this year?", "A concrete risk, with likelihood"],
+      ["Value", "What happens if we don't fix it this year?", "A concrete risk, with likelihood"],
       ["Options", "Is there a smaller first step that captures most of the value?", "An incremental plan"],
       ["Evidence", "How will we know it worked?", "A metric that should move"],
-      ["Cost", "What would we pause to do this?", "An explicit trade-off"]
+      ["Value", "What would we pause to do this?", "An explicit trade-off"]
     ]},
     buildbuy: { name: "Build vs Buy", q: [
       ["Problem", "Is this core to what makes us different, or is it a commodity?", "A clear strategic answer"],
-      ["Cost", "What does building it cost over three years, including maintenance?", "Ongoing costs, not just build"],
+      ["Value", "What does building it cost over three years, including maintenance?", "Ongoing costs, not just build"],
       ["Options", "What are the top two buy options, and their gaps?", "A real market comparison"],
       ["Risk", "What lock-in or dependency do we accept by buying?", "An exit path"],
       ["Evidence", "Have we prototyped or trialed either option?", "Hands-on evidence"]
@@ -53,7 +53,7 @@
       ["Risk", "Tell me about something you built that failed. What did you learn?", "Ownership, without blame"],
       ["Options", "How did you decide between approaches?", "Weighing trade-offs, not just preferences"],
       ["Problem", "How would you explain this to a non-technical stakeholder?", "Clear translation, which is your signal for communication"],
-      ["Cost", "How do you balance speed and quality?", "Context-dependent judgment"]
+      ["Value", "How do you balance speed and quality?", "Context-dependent judgment"]
     ]}
   };
   var DEPTH = { light: "Light (3)", standard: "Standard (5)", deep: "Deep (all)" };

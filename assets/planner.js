@@ -1,4 +1,4 @@
-/* Power Move Planner: goal → SPELL moves → Daylight Test. Stored in this browser only. */
+/* Power Move Planner: goal → SPELL moves → Daylight Test (Seen? True? Fair? Case-safe?). Stored in this browser only. */
 (function () {
   "use strict";
   var app = document.getElementById("planner-app");
@@ -41,8 +41,9 @@
       ["P", "Offer options (full, partial, phased) and recommend one."]
     ]}
   };
-  var TEST = ["I'd be comfortable if my team, my skip-level, and HR saw this", "It involves no lying or false impressions", "It doesn't unfairly harm anyone's reputation or work", "It's within law and company policy", "It protects, or at least doesn't hurt, my team"];
-  var NAMES = { S: "Say Less", P: "Position", E: "Earn Leverage", L: "Line Up Allies / Land on Timing" };
+  /* Daylight Test: Seen? True? Fair? plus a fourth check when you're building or have filed a complaint. */
+  var TEST = ["Seen: I'd be comfortable if my team, my skip-level, and HR saw exactly what I did and why", "True: it involves no lying and creates no false impression", "Fair: it doesn't unfairly harm anyone, it's within law and policy, and it doesn't hurt my team", "Case-safe: it would strengthen, not weaken, any complaint I make, and couldn't be read as retaliation"];
+  var NAMES = { S: "Say Less", P: "Position", E: "Earn Leverage", L: "L1 Line Up Allies / L2 Land on Timing" };
   var state = { goal: "decision", plan: "", test: {} };
   try { state = JSON.parse(localStorage.getItem(KEY) || "null") || state; if (!GOALS[state.goal]) state.goal = "decision"; } catch (e) { /* ignore */ }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* ignore */ } }

@@ -46,7 +46,7 @@
       links: [["Interaction Debrief", "debrief.html"], ["Upward SBI", "scripts.html#upward-sbi"], ["Owning Your 1:1s", "one-on-ones.html"]] };
     if (c.difficult > 0) return { cls: "", title: "Difficult, but workable.",
       text: "Adapt to their style and incentives. Over-communicate, lead with data, and send pre-reads.",
-      links: [["The Influence Playbook", "influence.html"], ["The Five Lenses", "../questions/five-lenses.html"]] };
+      links: [["The Influence Playbook", "influence.html"], ["PROVE", "../questions/prove.html"]] };
     return null;
   }
   function bully() { return state.a2 || state.a6 || (state.t1 && (state.t8 || state.t9 || state.t10)); }

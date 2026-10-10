@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Core 5 Pocket Card · Senior Manager Toolkit</title>
+  <meta name="description" content="The Core 5 frameworks on one printable page: Reset, Documentation, ARC, PROVE, and the Escalation Ladder, each with its steps and one line to say.">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script>try{var t=localStorage.getItem("smt-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <style>
+    .pocket { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin: 1.2em 0; }
+    .pocket .card h3 { font-size: 1.3rem; }
+    .pocket .card .fw-steps { margin: 4px 0 8px; font-size: 1.05rem; }
+    .pocket .card p.say { color: var(--fg); font-style: italic; }
+    @media print { .pocket { grid-template-columns: 1fr 1fr; gap: 6px; } .pocket .card { padding: 8px 10px; } h1 { font-size: 18pt; } .lede { display: none; } }
+  </style>
+</head>
+<body data-root="./" data-page="pocket-card">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" id="site-header"><a class="brand" href="./index.html">Senior Manager Toolkit</a></header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Site"><noscript><div class="nav-group"><a href="./index.html">Home</a><a href="./up/index.html">1 · Lead Up</a><a href="./capacity/index.html">2 · Lead Your Capacity</a><a href="./meetings/index.html">3 · Lead the Room</a><a href="./questions/index.html">4 · Lead With Questions</a><a href="./team/index.html">5 · Lead Your Team</a><a href="./self/index.html">6 · Lead Yourself</a><a href="./power/index.html">7 · Lead With Dark Magic</a><a href="./templates.html">Templates</a></div></noscript></nav>
+  <main class="content" id="main">
+    <article class="prose">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Toolkit</div>
+      <div class="eyebrow">Toolkit · Pocket Card</div>
+      <h1>Core 5 Pocket Card</h1>
+      <p class="lede">Five frameworks that cover most bad weeks. Print this page (it fits on one sheet), or save it to your phone's home screen.</p>
+      <div class="tool-row no-print"><button type="button" class="btn primary" onclick="window.print()">Print the Card</button></div>
+
+      <div class="pocket">
+        <a class="card p-self" href="self/reset-protocol.html"><span class="card-kicker">1 · After a bad interaction</span><h3>Reset</h3><div class="fw-steps"><span>Pause</span><span>Write</span><span>Choose</span></div><p>Send nothing for 20 minutes. Write the facts and exact words. Pick one move.</p><p class="say">"Got it. I'll come back to you shortly."</p></a>
+        <a class="card p-self" href="self/documentation.html"><span class="card-kicker">2 · Every incident and win</span><h3>Documentation</h3><div class="fw-steps"><span>Same Day</span><span>Facts Only</span><span>Back It Up</span></div><p>Date, setting, who was present, exact words, impact. Your own notes only, on a personal device.</p><p class="say">"To confirm what we agreed today…"</p></a>
+        <a class="card p-cap" href="capacity/arc-pushback.html"><span class="card-kicker">3 · Another "urgent" ask</span><h3>ARC</h3><div class="fw-steps"><span>Acknowledge</span><span>Reveal</span><span>Choose</span></div><p>Make the trade-off visible, offer options, recommend one, and confirm in writing. Two #1s means no #1.</p><p class="say">"Doing this by Friday means X slips. A or B? I'd recommend B."</p></a>
+        <a class="card p-q" href="questions/prove.html"><span class="card-kicker">4 · Technical debate</span><h3>PROVE</h3><div class="fw-steps"><span>Problem</span><span>Risk</span><span>Options</span><span>Value</span><span>Evidence</span></div><p>Pick the two that matter most. Ask, don't assert.</p><p class="say">"What's the most likely way this fails, and how would we know?"</p></a>
+        <a class="card p-up" href="up/escalation.html"><span class="card-kicker">5 · The pattern won't stop</span><h3>The Ladder</h3><div class="fw-steps"><span>Direct</span><span>Skip-Level</span><span>HR</span><span>Ethics / Legal</span></div><p>Bring evidence at every rung. <strong>Skip the ladder</strong> for discriminatory remarks, name-calling, threats, or retaliation.</p><p class="say">"Our team's delivery and retention are being affected by a pattern."</p></a>
+        <div class="card p-power"><span class="card-kicker">Before any counter-move</span><h3>Daylight Test</h3><div class="fw-steps"><span>Seen?</span><span>True?</span><span>Fair?</span><span>Case-safe?</span></div><p>If HR read exactly what you did and why, would it help you? If not, don't do it.</p></div>
+      </div>
+      <p class="small print-only">Senior Manager Toolkit: lemonadevodka.github.io/senior-manager-toolkit. General guidance, not legal, medical, or HR advice.</p>
+    </article>
+    <nav class="pager" id="pager"></nav>
+  </main>
+  <aside class="toc" id="toc"></aside>
+</div>
+<footer class="site-footer" id="footer"></footer>
+<script src="./assets/site.js"></script>
+</body>
+</html>
