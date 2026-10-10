@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Credibility Habits & Vocabulary · Senior Manager Toolkit</title>
+  <meta name="description" content="Habits that build technical credibility for non-technical leaders, and 30 core engineering terms explained in plain language with the question each one should prompt.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script>try{var t=localStorage.getItem("smt-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body data-root="../" data-page="q-vocab">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" id="site-header"><a class="brand" href="../index.html">Senior Manager Toolkit</a></header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Site"><noscript><div class="nav-group"><a href="../index.html">Home</a><a href="../up/index.html">1 · Lead Up</a><a href="../capacity/index.html">2 · Lead Your Capacity</a><a href="../meetings/index.html">3 · Lead the Room</a><a href="../questions/index.html">4 · Lead With Questions</a><a href="../team/index.html">5 · Lead Your Team</a><a href="../self/index.html">6 · Lead Yourself</a><a href="../power/index.html">7 · Lead With Dark Magic</a><a href="../templates.html">Templates</a></div></noscript></nav>
+  <main class="content" id="main">
+    <article class="prose">
+      <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Lead With Questions</a></div>
+      <div class="eyebrow">Pillar 4 · Lead With Questions</div>
+      <h1>Credibility Habits &amp; Vocabulary</h1>
+      <p class="lede">Technical credibility for a leader comes from habits, not a computer science degree. Use the vocabulary correctly, follow up, translate clearly, and never pretend.</p>
+
+      <h2 id="habits">Credibility Habits</h2>
+      <ul class="checklist" data-key="smt-cred-habits">
+        <li><strong>Learn the 30 terms below</strong> well enough to use them correctly in a sentence.</li>
+        <li><strong>Read one design doc or postmortem a week</strong>, and note one question you'd ask.</li>
+        <li><strong>Ask an engineer to teach you</strong> one concept a month. People love explaining their work.</li>
+        <li><strong>Follow up</strong> on every question you asked (<a href="how-to-ask.html#close-the-loop">how</a>).</li>
+        <li><strong>Translate for executives</strong>: impact, risk, cost, and decision, never raw jargon.</li>
+        <li><strong>Give credit by name</strong> when you present your team's technical work.</li>
+      </ul>
+
+      <h2 id="core-vocabulary">30 Core Terms</h2>
+      <div class="table-wrap"><table><thead><tr><th>Term</th><th>Plain meaning</th><th>Question it should prompt</th></tr></thead><tbody>
+        <tr><td>Latency</td><td>How long something takes to respond</td><td>"At the typical case, and at the slowest 5%?"</td></tr>
+        <tr><td>P50 / P95</td><td>Typical response time / the slowest 5% of requests</td><td>"Did the P95 change, or only the P50?"</td></tr>
+        <tr><td>Error rate</td><td>Share of requests that fail</td><td>"Failures users actually see?"</td></tr>
+        <tr><td>Throughput</td><td>How much work the system handles per unit of time</td><td>"How close are we to the limit?"</td></tr>
+        <tr><td>SLA / SLO / SLI</td><td>A promise to customers / an internal target / the measurement itself</td><td>"Are we inside our SLO this month?"</td></tr>
+        <tr><td>Error budget</td><td>How much unreliability the SLO allows</td><td>"How much budget is left?"</td></tr>
+        <tr><td>Availability</td><td>Share of time the service works</td><td>"For whom, and measured how?"</td></tr>
+        <tr><td>Scalability</td><td>Ability to handle more load</td><td>"What breaks first at twice the traffic?"</td></tr>
+        <tr><td>Capacity</td><td>How much load we can handle before trouble</td><td>"What's our headroom at peak?"</td></tr>
+        <tr><td>Bottleneck</td><td>The slowest step that limits everything</td><td>"Where's the bottleneck now?"</td></tr>
+        <tr><td>Blast radius</td><td>How much is affected when something fails</td><td>"How do we keep it small?"</td></tr>
+        <tr><td>Rollback</td><td>Undoing a change</td><td>"How fast, and has it been tested?"</td></tr>
+        <tr><td>Canary / staged rollout</td><td>Releasing to a small group first</td><td>"What do we watch before expanding?"</td></tr>
+        <tr><td>Feature flag</td><td>A switch that turns a feature on or off without a deploy</td><td>"Can we turn it off quickly?"</td></tr>
+        <tr><td>Deploy / release</td><td>Putting code into production</td><td>"How often, and how risky is each one?"</td></tr>
+        <tr><td>CI/CD</td><td>Automated testing and deployment pipeline</td><td>"What's tested automatically before release?"</td></tr>
+        <tr><td>Technical debt</td><td>Shortcuts that make future work slower or riskier</td><td>"What is it costing us now?"</td></tr>
+        <tr><td>Refactor</td><td>Restructuring code without changing behavior</td><td>"What does it make easier afterwards?"</td></tr>
+        <tr><td>API</td><td>How systems talk to each other</td><td>"Who depends on it, and what if it changes?"</td></tr>
+        <tr><td>Dependency</td><td>Something we rely on that we don't control</td><td>"What happens if it fails?"</td></tr>
+        <tr><td>Single point of failure</td><td>One component whose failure stops everything</td><td>"Do we have any?"</td></tr>
+        <tr><td>Redundancy / failover</td><td>Backup components / switching to them</td><td>"When did we last test failover?"</td></tr>
+        <tr><td>Observability</td><td>How well we can see what the system is doing</td><td>"Could we explain a problem from our dashboards?"</td></tr>
+        <tr><td>Monitoring / alerting</td><td>Watching metrics / being notified when they're bad</td><td>"Do alerts fire on user impact, or on noise?"</td></tr>
+        <tr><td>Incident / postmortem</td><td>An unplanned disruption / the blameless review after it</td><td>"What did we change because of it?"</td></tr>
+        <tr><td>Toil</td><td>Manual, repetitive operational work</td><td>"How much of the team's time is toil?"</td></tr>
+        <tr><td>On-call</td><td>Being responsible for responding out of hours</td><td>"How many pages per week, and is it fair?"</td></tr>
+        <tr><td>Root cause / contributing factors</td><td>Why something happened (usually several reasons)</td><td>"What made this possible, not just who?"</td></tr>
+        <tr><td>MVP</td><td>The smallest version that delivers value</td><td>"What's the smallest version we could ship first?"</td></tr>
+        <tr><td>Build vs buy</td><td>Make it ourselves, or purchase it</td><td>"Is this core to what makes us different?"</td></tr>
+      </tbody></table></div>
+    </article>
+    <nav class="pager" id="pager"></nav>
+  </main>
+  <aside class="toc" id="toc"></aside>
+</div>
+<footer class="site-footer" id="footer"></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
