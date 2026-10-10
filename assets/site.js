@@ -68,8 +68,8 @@
       { id: "self-decide", href: "self/stay-change-leave.html", title: "Stay, Change, or Leave" },
       { id: "self-exit", href: "self/exiting-well.html", title: "Exiting Well" }
     ]},
-    { group: "7 · Lead With Dark Magic", track: "power", items: [
-      { id: "power", href: "power/index.html", title: "Dark Magic Playbook" },
+    { group: "7 · Go on Offense", track: "power", items: [
+      { id: "power", href: "power/index.html", title: "Go on Offense Playbook" },
       { id: "power-spell", href: "power/spell.html", title: "The SPELL Framework" },
       { id: "power-laws", href: "power/laws-in-practice.html", title: "The Laws in Practice" },
       { id: "power-counter", href: "power/counter-spells.html", title: "Counter-Spells" },
