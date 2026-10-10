@@ -28,7 +28,7 @@ Every framework page opens with a **Framework Card**: Use When · The Steps · S
 | 6 | **Lead Yourself** (`self/`) | Warning signs, the Reset Protocol, recovery and support, **Rebuilding Confidence** after sustained criticism, a Weekly Check-In, documentation, career insurance, Stay / Change / Leave, and exiting well |
 | 7 | **Go on Offense** (`power/`) | **SPELL** (Say less, Position, Earn leverage, L1 Line up allies, L2 Land on timing), ideas from *The 48 Laws of Power* applied ethically, Counter-Spells, the **Daylight Test** (Seen? True? Fair? Case-safe?), and a Power Move Planner |
 
-The Toolkit section adds a filterable template library (22 templates), the Core 5 pocket card, a framework index, a roadmap, and references.
+The Start section has the dashboard, a 15-minute Start Here path, and the Core 5 pocket card. The Resources section adds a filterable template library (22 templates), a framework index, a roadmap, and references.
 
 ## Privacy
 

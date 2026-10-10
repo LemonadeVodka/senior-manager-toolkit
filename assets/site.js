@@ -4,25 +4,29 @@
   "use strict";
 
   /* Each group is a track (and a pillar colour). Prev/next paging stays inside the track.
-     core: true marks the Core 5 frameworks to learn first. */
+     core: true marks the Core 5 frameworks to learn first. { label } entries are sub-group headings, not pages. */
+  var UPDATED = "October 10, 2026"; /* bump on each release */
   var NAV = [
     { group: "Start", track: "start", items: [
       { id: "index", href: "index.html", title: "Dashboard" },
       { id: "how-to-use", href: "how-to-use.html", title: "Start Here" },
-      { id: "ground-rules", href: "ground-rules.html", title: "Ground Rules" },
-      { id: "frameworks", href: "frameworks.html", title: "Framework Index" }
+      { id: "pocket-card", href: "pocket-card.html", title: "Core 5 Pocket Card" },
+      { id: "ground-rules", href: "ground-rules.html", title: "Ground Rules" }
     ]},
     { group: "1 · Lead Up", track: "up", items: [
       { id: "up", href: "up/index.html", title: "Lead Up Playbook" },
+      { label: "Understand" },
       { id: "up-diagnose", href: "up/diagnose.html", title: "Difficult, Toxic, or Abusive?" },
       { id: "up-bully", href: "up/brilliant-bully.html", title: "Field Guide: The Brilliant Bully" },
-      { id: "up-hr", href: "up/hr-reportable.html", title: "When It's HR-Reportable" },
+      { label: "Influence" },
       { id: "up-influence", href: "up/influence.html", title: "The Influence Playbook" },
       { id: "up-visibility", href: "up/leadership-visibility.html", title: "Make Leadership Count" },
       { id: "up-scripts", href: "up/scripts.html", title: "Scripts for Hard Moments" },
       { id: "up-one-on-ones", href: "up/one-on-ones.html", title: "Owning Your 1:1s" },
-      { id: "up-escalation", href: "up/escalation.html", title: "The Escalation Ladder", core: true },
-      { id: "up-debrief", href: "up/debrief.html", title: "Interaction Debrief" }
+      { label: "Record & Escalate" },
+      { id: "up-debrief", href: "up/debrief.html", title: "Interaction Debrief" },
+      { id: "up-hr", href: "up/hr-reportable.html", title: "When It's HR-Reportable" },
+      { id: "up-escalation", href: "up/escalation.html", title: "The Escalation Ladder", core: true }
     ]},
     { group: "2 · Lead Your Capacity", track: "capacity", items: [
       { id: "cap", href: "capacity/index.html", title: "Lead Your Capacity Playbook" },
@@ -58,12 +62,14 @@
     ]},
     { group: "6 · Lead Yourself", track: "self", items: [
       { id: "self", href: "self/index.html", title: "Lead Yourself Playbook" },
+      { label: "Steady Yourself" },
       { id: "self-signs", href: "self/warning-signs.html", title: "Warning Signs" },
       { id: "self-reset", href: "self/reset-protocol.html", title: "The Reset Protocol", core: true },
       { id: "self-recovery", href: "self/recovery-and-support.html", title: "Recovery & Support" },
       { id: "self-confidence", href: "self/rebuilding-confidence.html", title: "Rebuilding Confidence" },
       { id: "self-checkin", href: "self/check-in.html", title: "Weekly Check-In" },
-      { id: "self-docs", href: "self/documentation.html", title: "Documentation Done Right", core: true },
+      { label: "Protect Your Career" },
+      { id: "self-docs", href: "self/documentation.html", title: "Documentation", core: true },
       { id: "self-career", href: "self/career-insurance.html", title: "Career Insurance" },
       { id: "self-decide", href: "self/stay-change-leave.html", title: "Stay, Change, or Leave" },
       { id: "self-exit", href: "self/exiting-well.html", title: "Exiting Well" }
@@ -76,9 +82,9 @@
       { id: "power-daylight", href: "power/daylight-test.html", title: "The Daylight Test" },
       { id: "power-planner", href: "power/power-move-planner.html", title: "Power Move Planner" }
     ]},
-    { group: "Toolkit", track: "toolkit", items: [
+    { group: "Resources", track: "resources", items: [
       { id: "templates", href: "templates.html", title: "Template Library" },
-      { id: "pocket-card", href: "pocket-card.html", title: "Core 5 Pocket Card" },
+      { id: "frameworks", href: "frameworks.html", title: "Framework Index" },
       { id: "roadmap", href: "roadmap.html", title: "What's Next" },
       { id: "references", href: "references.html", title: "References" }
     ]}
@@ -151,6 +157,7 @@
       var open = g.track === "start" || g.track === currentTrack;
       if (open) cls += " open";
       return '<div class="' + cls + '" data-pillar="' + g.track + '"><h4><button type="button" class="nav-toggle" aria-expanded="' + open + '">' + esc(g.group) + '</button></h4><div class="nav-items">' + g.items.map(function (i) {
+        if (!i.href) return '<div class="nav-sub">' + esc(i.label) + '</div>';
         var cur = i.id === page ? ' aria-current="page"' : "";
         return '<a href="' + root + i.href + '"' + cur + '><span>' + esc(i.title) + '</span>' + (i.core ? '<span class="nav-core" title="Core 5 framework">CORE</span>' : "") + '</a>';
       }).join("") + '</div></div>';
@@ -166,7 +173,7 @@
   var pager = document.getElementById("pager");
   if (pager && current) {
     var seq = [];
-    NAV.forEach(function (g) { if (g.track === currentTrack) g.items.forEach(function (i) { seq.push(i); }); });
+    NAV.forEach(function (g) { if (g.track === currentTrack) g.items.forEach(function (i) { if (i.href) seq.push(i); }); });
     var idx = seq.indexOf(current);
     var html = "";
     if (idx > 0) html += '<a class="prev" href="' + root + seq[idx - 1].href + '"><small>← Previous</small>' + esc(seq[idx - 1].title) + '</a>';
@@ -178,8 +185,9 @@
   /* ---------- Footer ---------- */
   var footer = document.getElementById("footer");
   if (footer) {
-    footer.innerHTML = 'Personal toolkit with fictional, generic examples. Not legal, medical, or HR advice. Private notes stay in your browser. · ' +
-      '<a href="' + root + 'references.html">References</a> · <a href="https://github.com/LemonadeVodka/senior-manager-toolkit">Source on GitHub</a>';
+    footer.innerHTML = '&copy; 2026 Senior Manager Toolkit. All rights reserved. · Updated ' + UPDATED +
+      '<small>Not legal, medical, or HR advice. Private notes stay in your browser. · ' +
+      '<a href="' + root + 'references.html">References</a> · <a href="https://github.com/LemonadeVodka/senior-manager-toolkit">Source on GitHub</a></small>';
   }
 
   /* ---------- Heading anchors + TOC ---------- */
