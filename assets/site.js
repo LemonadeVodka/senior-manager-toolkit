@@ -6,6 +6,7 @@
   /* Each group is a track (and a pillar colour). Prev/next paging stays inside the track.
      core: true marks the Core 5 frameworks to learn first. { label } entries are sub-group headings, not pages. */
   var UPDATED = "October 10, 2026"; /* bump on each release */
+  var GUIDE = "Leading Under Pressure"; /* this guide's name within the Senior Manager Toolkit collection */
   var NAV = [
     { group: "Start", track: "start", items: [
       { id: "index", href: "index.html", title: "Dashboard" },
@@ -119,7 +120,7 @@
   if (header) {
     header.innerHTML =
       '<button class="icon-btn menu-btn" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">' + MENU + '</button>' +
-      '<a class="brand" href="' + root + 'index.html">' + CLOUD + '<span>Senior Manager<small>Toolkit</small></span></a>' +
+      '<a class="brand" href="' + root + 'index.html">' + CLOUD + '<span>Senior Manager Toolkit<small>' + GUIDE + '</small></span></a>' +
       '<div class="header-spacer"></div>' +
       '<a class="header-cta" href="' + root + 'capacity/overwork-triage.html"><span>Drowning<span class="cta-long">? Triage</span></span></a>' +
       '<a class="header-cta reset" href="' + root + 'self/reset-protocol.html"><span>Need a Reset<span class="cta-long">?</span></span></a>' +
@@ -185,7 +186,7 @@
   /* ---------- Footer ---------- */
   var footer = document.getElementById("footer");
   if (footer) {
-    footer.innerHTML = '&copy; 2026 Senior Manager Toolkit. All rights reserved. · Updated ' + UPDATED;
+    footer.innerHTML = '&copy; 2026 Senior Manager Toolkit · ' + GUIDE + '. All rights reserved. · Updated ' + UPDATED;
   }
 
   /* ---------- Heading anchors + TOC ---------- */

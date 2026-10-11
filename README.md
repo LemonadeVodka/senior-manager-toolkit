@@ -1,4 +1,6 @@
-# Senior Manager Toolkit
+# Senior Manager Toolkit: Leading Under Pressure
+
+The first guide in the **Senior Manager Toolkit** collection. **Incident Management** is next.
 
 A personal playbook for senior managers working under pressure: a difficult boss, too much work, too many meetings, a technical room to hold, and a team to protect. It's organized into **seven "Lead" pillars**, one for each thing you're leading.
 
